@@ -36,9 +36,10 @@ img {
 
 #topbar {
     position:fixed;
+    display: flex;
+    justify-content: center;
     top:0;
     width:100%;
-
     z-index:999;
     background:white;
     border-bottom:1px solid #575656;
@@ -84,7 +85,7 @@ img {
 }
 
 #gallery {
-    position: absolute; 
+    position: relative; 
     left: 30px;  
     top: 105px;
     height:100%; 
