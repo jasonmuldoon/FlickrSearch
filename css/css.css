@@ -1,6 +1,8 @@
-html,body,div,p,a,img,header{
+html,body,p,a,header{
     border:0;
     font-size:100%;
+    display: flex;
+    justify-content: center;
     vertical-align:baseline;
     outline:none;
     -webkit-box-sizing:border-box;
@@ -24,9 +26,13 @@ body {
 }
 
 img {
-    border:0;
+    align-content: center;
+    object-fit: fill;
+    display: flex;
+    justify-content: center;
     max-width:100%;
-}
+    max-height: 100%;
+    }
 
 #topbar {
     position:fixed;
@@ -55,6 +61,9 @@ img {
 }
 #wrapper {
     padding-top:0px;
+    display: flex;
+    justify-content: center;
+    max-width:100%;
     margin:0 auto;
     border:0px solid red;
 }
@@ -78,15 +87,14 @@ img {
     position: absolute; 
     left: 30px;  
     top: 105px;
-    height:400px; 
+    height:100%; 
     overflow:auto; 
-    width:56%;
+    width:90%;
 } 
 figure {
-    float:left;
-    position:relative;
-    margin-right:15px;
-    margin-bottom:1.35em;
+    max-width: 100%;
+    max-height: 100%;
+    align-content: center;
     padding:30px;
     border:1px solid #c6c6c6;
     -webkit-box-shadow:1px 1px 22px rgba(0,0,0,0.35);

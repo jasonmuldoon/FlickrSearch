@@ -1,12 +1,12 @@
 function updatestatus() {
     //Show number of loaded items
     var totalItems = $('#gallery figure').length;
-    $('#status').text('Loaded ' + totalItems + ' Items');
+    $('#status');
 }
 function ajaxProcess() {
 
     var searchTerm = $("#term").val();
-    var URL2 = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=0add6d8735ce8a222aa2ed59b5615a4f&';
+    var URL2 = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=0add6d8735ce8a222aa2ed59b5615a4f&safe_search=1';
     var tags = "&tags=" + searchTerm;
     var jsonFormat = "&format=json";
     var ajaxURL = URL2 + "per_page=" + perpage + "&page=" + currentPage + tags + jsonFormat;
@@ -23,7 +23,6 @@ function ajaxProcess() {
                     photoHTML += "<figure> <img src='";
                     photoHTML += "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_n.jpg'";
                     photoHTML += " title='" + photo.title + "'";
-                    photoHTML += " class='img-responsive'>";
                     photoHTML+=  photo.title+"</figure>";
                     $("#gallery").append(photoHTML).fadeIn(200);
                 });
