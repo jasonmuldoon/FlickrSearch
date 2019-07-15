@@ -1,15 +1,11 @@
-function updatestatus() {
-    //Show number of loaded items
-    var totalItems = $('#gallery figure').length;
-    $('#status');
-}
+
 function ajaxProcess() {
 
     var searchTerm = $("#term").val();
-    var URL2 = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=0add6d8735ce8a222aa2ed59b5615a4f&safe_search=1';
+    var URL2 = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=0add6d8735ce8a222aa2ed59b5615a4f&safe_search=1&per_page=25&page=1';
     var tags = "&tags=" + searchTerm;
     var jsonFormat = "&format=json";
-    var ajaxURL = URL2 + "per_page=" + perpage + "&page=" + currentPage + tags + jsonFormat;
+    var ajaxURL = URL2 + tags + jsonFormat;
 
     $.ajax({
         url: ajaxURL,
@@ -41,8 +37,7 @@ function ajaxProcess() {
 
 }
 
-var perpage = 25;
-var currentPage = 1;
+
 
 $(document).ready(function () {
     $("input#submit").on('click keypress', function (e) {
@@ -55,7 +50,7 @@ $(document).ready(function () {
         if (key === 13 || event === 'click') {
             if ($("#term").val() !== "") {
                 
-                updatestatus();
+                
                 ajaxProcess();
                 
             } else {
@@ -74,16 +69,6 @@ $(document).ready(function () {
     });
 
 
-    $("#gallery").scroll(function () {
-        // check if we're at the bottom of the scrollcontainer
-        if ($(this)[0].scrollHeight - $(this).scrollTop() === $(this).outerHeight())
-        {
-            // If we're at the bottom, retrieve the next page
-            currentPage++;
-            $("#submit").click();
-            updatestatus();
-        }
-
-    });
+    
     
 });
